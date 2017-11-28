@@ -84,5 +84,5 @@ namespace :csv_import do
   end 
 
   desc "populate all tables"
-  task all: [:merchants, :customers, :items, :invoices, :invoiceitems, :transactions]
+  task all: [:import_merchants, :import_customers, :import_items, :import_invoices, :import_invoice_items, :import_transactions]
 end 
