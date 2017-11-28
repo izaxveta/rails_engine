@@ -8,5 +8,17 @@ RSpec.describe 'Merchants API' do
 
     # expect(response).to be_success
     merchants = JSON.parse(response.body)
+    expect(merchants.count).to eq(8)
+  end
+
+  it 'can obtain one merchant by the :id' do
+    id = create(:merchant).id
+
+    get "/api/v1/merchants/#{id}"
+
+    merchant = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(merchant["id"]).to eq(id)
   end
 end
