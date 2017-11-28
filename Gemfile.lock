@@ -76,7 +76,7 @@ GEM
       activerecord (>= 5.1)
       pg (>= 0.17)
       responders
-    puma (3.11.0)
+    puma (3.10.0)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)

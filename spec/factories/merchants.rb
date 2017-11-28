@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :merchant do
-    name "MyText"
+    sequence :name do
+      Faker::Zelda.character
+    end
   end
 end
