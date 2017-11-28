@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Custsomers API' do
   it 'sends a list of customers' do
     create_list(:customer, 8)
-
     get '/api/v1/customers'
 
     expect(response).to be_success

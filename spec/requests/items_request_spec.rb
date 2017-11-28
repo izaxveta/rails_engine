@@ -17,7 +17,7 @@ describe "Invoices API" do
   it 'can obtain one merchant by the :id' do
     customer = build(:customer)
     merchant = build(:merchant)
-    id = create(:item).id
+    id = create(:item, merchant: merchant).id
 
     get "/api/v1/items/#{id}"
 
