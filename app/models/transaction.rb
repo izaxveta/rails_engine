@@ -1,7 +1,10 @@
 class Transaction < ApplicationRecord
   belongs_to :invoice
 
-  def success
-    true if self.result == "success"
+  # scope :success, ->{ where(result: ‘success’) }
+  # scope :failure, ->{ where(result: ‘failure’) }
+
+  def self.success
+    where(result: 'success')
   end 
 end

@@ -11,6 +11,7 @@ namespace :api do
   end
 end
 
-get "/api/v1/merchants/:id/customers_with_pending_invoices", to: 'api/v1/analytics#customers_with_pending_invoices'
+get '/api/v1/merchants/:id/revenue', to: 'api/v1/merchants/revenue#show'
+# get "/api/v1/merchants/:id/customers_with_pending_invoices", to: 'api/v1/analytics#customers_with_pending_invoices'
 
 end
