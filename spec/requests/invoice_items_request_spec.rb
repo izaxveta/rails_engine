@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Invoice Items API" do
+RSpec.describe "Invoice Items API" do
   it "sends a list of merchants" do
      customer = create(:customer)
      merchant = create(:merchant)
@@ -34,4 +34,5 @@ describe "Invoice Items API" do
     expect(response).to be_success
     expect(customer["id"]).to eq(id)
   end
-end 
+
+ end 
