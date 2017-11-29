@@ -5,9 +5,7 @@ class Merchant < ApplicationRecord
 
   def revenue
     Invoice
-      #narrow to merchant invoices
      .where(merchant_id: self.id)
-     #combine with successful transactions
      .invoice_revenue
   end 
 end
