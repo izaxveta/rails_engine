@@ -1,8 +1,10 @@
 class Transaction < ApplicationRecord
   belongs_to :invoice
 
-  # scope :success, ->{ where(result: ‘success’) }
-  # scope :failure, ->{ where(result: ‘failure’) }
+  scope :successful, -> { where(result: "success") }
+  scope :failure,    -> { where(result: "failed") }
+
+  default_scope { order(:id) }
 
   def self.find_transaction(params)
     find_by(params)
@@ -11,8 +13,4 @@ class Transaction < ApplicationRecord
   def self.find_all_transactions(params)
     where(params)
   end
-
-  # def self.success
-  #   where(result: 'success')
-  # end
 end

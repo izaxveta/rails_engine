@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 namespace :api do
   namespace :v1 do
     namespace :merchants do
-      resources :find,     only: [:index]
-      resources :find_all, only: [:index]
+      resources :revenue,      only: [:index], to: 'revenue#index'
+      resources :most_revenue, only: [:index], to: 'most_revenue#index'
+      resources :most_items,   only: [:index], to: 'most_items#index'
+      resources :find,         only: [:index]
+      resources :find_all,     only: [:index]
     end
 
     namespace :invoices do
@@ -33,6 +36,7 @@ namespace :api do
     end
 
     resources :merchants,       only: [:index, :show] do
+      resources :revenue,       only: [:index], to: 'merchants/revenue#index'
       resources :items,         only: [:index], to: 'merchants/items#index'
       resources :invoices,      only: [:index], to: 'merchants/invoices#index'
 		end
@@ -63,7 +67,7 @@ namespace :api do
   end
 end
 
-get '/api/v1/merchants/:id/revenue', to: 'api/v1/merchants/revenue#show'
+# get '/api/v1/merchants/:id/revenue', to: 'api/v1/merchants/revenue#show'
 # get "/api/v1/merchants/:id/customers_with_pending_invoices", to: 'api/v1/analytics#customers_with_pending_invoices'
 
 end
