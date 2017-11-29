@@ -13,8 +13,12 @@ class Invoice < ApplicationRecord
     find_by(params)
   end
 
-  # def invoice_revenue
-  #   joins(:transactions, :invoice_items)
-  #   .where('transaction.result = ?', "success" )
-  # end
+  def self.most_expensive(limit = 5)
+    select("invoices.id, sum(invoice_items.unit_price * invoice_items.quantity) as revenue")
+      .joins(:transactions, :invoice_items)
+      .merge(Transaction.unscoped.successful)
+      .group(:id)
+      .order("revenue DESC")
+      .limit(limit)
+  end
 end
