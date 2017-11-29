@@ -2,34 +2,63 @@ Rails.application.routes.draw do
 
 namespace :api do
   namespace :v1 do
+    namespace :merchants do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
+    namespace :invoices do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
+    namespace :invoice_items do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
+    namespace :customers do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
+    namespace :transactions do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
+    namespace :items do
+      resources :find,     only: [:index]
+      resources :find_all, only: [:index]
+    end
+
     resources :merchants,       only: [:index, :show] do
-      resources :items,         only: [:index], to: 'merchants/items#index'         
-      resources :invoices,      only: [:index], to: 'merchants/invoices#index' 
-		end 
-			
-    resources :transactions,    only: [:index, :show] do 
-      resources :invoices,      only: [:show], to: "transactions/invoices#show"
-    end 
-   
+      resources :items,         only: [:index], to: 'merchants/items#index'
+      resources :invoices,      only: [:index], to: 'merchants/invoices#index'
+		end
+
+    resources :transactions,    only: [:index, :show] do
+      resources :invoice,       only: [:index], to: "transactions/invoice#index"
+    end
+
     resources :customers,         only: [:index, :show] do
       resources :invoices,        only: [:index], to: "customers/invoices#index"
       resources :transactions,    only: [:index], to: "customers/transactions#index"
-    end 
-    
+    end
+
     resources :invoices,        only: [:index, :show] do
       resources :transactions,  only: [:index], to: 'invoices/transactions#index'
       resources :invoice_items, only: [:index], to: 'invoices/invoice_items#index'
       resources :items,         only: [:index], to: 'invoices/items#index'
       resources :customer,      only: [:show], to: 'invoices/customers#show'
       resources :merchant,      only: [:show], to: 'invoices/merchants#show'
-    end 
+    end
 
     resources :invoice_items,   only: [:index, :show] do
-      resources :invoices,      only: [:show], to: 'invoice_items/invoices#show' 
+      resources :invoices,      only: [:show], to: 'invoice_items/invoices#show'
       resources :item,          only: [:show], to: "invoice_items/items#show"
-    end 
-    
-    
+    end
+
     resources :items,           only: [:index, :show]
   end
 end

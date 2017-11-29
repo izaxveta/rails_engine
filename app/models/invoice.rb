@@ -5,10 +5,16 @@ class Invoice < ApplicationRecord
   has_many :items, through: :invoice_items
   has_many :transactions
 
+  def self.find_all_invoices(params)
+    where(params)
+  end
 
-  def invoice_revenue
-    joins(:transactions, :invoice_items)
-    .where('transaction.result = ?', "success" )
+  def self.find_invoice(params)
+    find_by(params)
+  end
 
-  end 
+  # def invoice_revenue
+  #   joins(:transactions, :invoice_items)
+  #   .where('transaction.result = ?', "success" )
+  # end
 end
