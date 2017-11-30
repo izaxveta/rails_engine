@@ -29,15 +29,15 @@ class Merchant < ApplicationRecord
       .limit(limit)
   end
 
-  def self.most_items
+  def self.most_items(quantity)
     select("merchants.*, sum(invoice_items.quantity) as item_quantity")
       .joins(invoices: [:transactions, :invoice_items])
       .merge(Transaction.unscoped.successful)
       .group(:id)
       .order("item_quantity DESC")
+      .limit(limit)
   end
   
-  #help
   def self.favorite_customer(filter)
     Invoice
     .select("customer.*, sum(invoice.id) as invoice_count")

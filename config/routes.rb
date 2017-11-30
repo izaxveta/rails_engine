@@ -16,23 +16,34 @@ namespace :api do
     end
 
     namespace :invoice_items do
-      resources :find,     only: [:index]
-      resources :find_all, only: [:index]
+      # resources :find,     only: [:index]
+      get '/find' => "find#index"
+      # resources :find_all, only: [:index]
+      get "/find_all" => 'find_all#index'
     end
 
     namespace :customers do
-      resources :find,              only: [:index]
-      resources :find_all,          only: [:index]
+#      resources :find,              only: [:index]#, to: 'find#index'
+      get '/find' => "find#index"
+#     resources :find_all,          only: [:index]#, to: "find_all#index"
+      get "/find_all" => 'find_all#index'
     end
+   
     
+    # namespace :customers do
+    #   get '/find' => 'customers#show'
+    # end
     namespace :transactions do
-      resources :find,     only: [:index]
-      resources :find_all, only: [:index]
+      get '/find' => "find#index"
+#      resources :find,     only: [:index], to: "find#index"
+      get "/find_all" => 'find_all#index'
+ #     resources :find_all, only: [:index], to: "find_all#index "
     end
     
     namespace :items do
-      resources :find,         only: [:index]
-      resources :find_all,     only: [:index]
+      get '/find' => "find#index"
+#      resources :find,     only: [:index], to: "find#index"
+      get "/find_all" => 'find_all#index'
       resources :most_revenue, only: [:index], to: 'most_revenue#index'
       resources :most_items,   only: [:index], to: 'most_items#index'
 
