@@ -1,10 +1,9 @@
 namespace :csv_import do
 
 #  desc "populate merchants from CSV"
-  
-  
+
   desc "import from CSV"
-  
+
   task import_merchants: :environment do
     puts "Importing merchants from csv in #{Rails.env} environment"
     Merchant.copy_from "db/data/merchants.csv",
@@ -14,7 +13,7 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
+  end
 
   task import_customers: :environment do
     puts "Importing customers from csv in #{Rails.env} environment"
@@ -26,7 +25,7 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
+  end
 
   task import_items: :environment do
     puts "Importing Items from csv in #{Rails.env} environment"
@@ -40,8 +39,8 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
-  
+  end
+
   task import_invoices: :environment do
     puts "Importing Invoices from csv in #{Rails.env} environment"
     Invoice.copy_from "db/data/invoices.csv",
@@ -53,8 +52,8 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
-  
+  end
+
   task import_invoice_items: :environment do
     puts "Importing Invoice Items from csv in #{Rails.env} environment"
     InvoiceItem.copy_from "db/data/invoice_items.csv",
@@ -67,8 +66,8 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
-  
+  end
+
   task import_transactions: :environment do
     puts "Importing Transactions from csv in #{Rails.env} environment"
     Transaction.copy_from "db/data/transactions.csv",
@@ -81,8 +80,8 @@ namespace :csv_import do
       'created_at' => 'created_at',
       'updated_at' => 'updated_at'
     }
-  end 
+  end
 
   desc "populate all tables"
   task all: [:import_merchants, :import_customers, :import_items, :import_invoices, :import_invoice_items, :import_transactions]
-end 
+end
