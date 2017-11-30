@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-
-namespace :api do
-  namespace :v1 do
-    namespace :merchants do
-      resources :revenue,      only: [:index], to: 'revenue#index'
-      resources :most_revenue, only: [:index], to: 'most_revenue#index'
-      resources :most_items,   only: [:index], to: 'most_items#index'
-      resources :find,         only: [:index], to: 'find#index'
-      resources :find_all,     only: [:index], to: "find_all#index"
-    end
+  
+  namespace :api do
+    namespace :v1 do
+      namespace :merchants do
+        resources :revenue,      only: [:index], to: 'revenue#index'
+        resources :most_revenue, only: [:index], to: 'most_revenue#index'
+        resources :most_items,   only: [:index], to: 'most_items#index'
+        resources :find,         only: [:index], to: 'find#index'
+        resources :find_all,     only: [:index], to: "find_all#index"
+        get "/:id/favorite_customer" => "favorite_customer#index"
+      end
 
     namespace :invoices do
       resources :find,     only: [:index]
@@ -16,33 +17,22 @@ namespace :api do
     end
 
     namespace :invoice_items do
-      # resources :find,     only: [:index]
       get '/find' => "find#index"
-      # resources :find_all, only: [:index]
       get "/find_all" => 'find_all#index'
     end
 
     namespace :customers do
-#      resources :find,              only: [:index]#, to: 'find#index'
       get '/find' => "find#index"
-#     resources :find_all,          only: [:index]#, to: "find_all#index"
       get "/find_all" => 'find_all#index'
     end
-   
     
-    # namespace :customers do
-    #   get '/find' => 'customers#show'
-    # end
     namespace :transactions do
       get '/find' => "find#index"
-#      resources :find,     only: [:index], to: "find#index"
       get "/find_all" => 'find_all#index'
- #     resources :find_all, only: [:index], to: "find_all#index "
     end
     
     namespace :items do
       get '/find' => "find#index"
-#      resources :find,     only: [:index], to: "find#index"
       get "/find_all" => 'find_all#index'
       resources :most_revenue, only: [:index], to: 'most_revenue#index'
       resources :most_items,   only: [:index], to: 'most_items#index'
@@ -53,7 +43,7 @@ namespace :api do
       resources :revenue,           only: [:index], to: 'merchants/revenue#index'
       resources :items,             only: [:index], to: 'merchants/items#index'
       resources :invoices,          only: [:index], to: 'merchants/invoices#index'
-      resources :favorite_customer, only: [:index], to: 'merchants/favorite_customer#index' 
+      # resources :favorite_customer, only: [:index], to: 'merchants/favorite_customer#index' 
 		end
     
     resources :transactions,    only: [:index, :show] do
@@ -87,7 +77,4 @@ namespace :api do
   end
 end
 
-# get '/api/v1/merchants/:id/revenue', to: 'api/v1/merchants/revenue#show'
-# get "/api/v1/merchants/:id/customers_with_pending_invoices", to: 'api/v1/analytics#customers_with_pending_invoices'
- 
 end
