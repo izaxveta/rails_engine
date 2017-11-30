@@ -66,4 +66,15 @@ RSpec.describe 'Merchants API' do
       expect(merchants.count).to eq 2
  
     end 
+
+    it ":id/items returns the merchant's items" do
+      #this route should exist but is erroring out. 
+      get "/api/vi/merchants/#{@merchant.id}/items"
+
+      items = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(items.count).to eq 2
+
+    end 
 end

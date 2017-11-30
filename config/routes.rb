@@ -7,7 +7,7 @@ namespace :api do
       resources :most_revenue, only: [:index], to: 'most_revenue#index'
       resources :most_items,   only: [:index], to: 'most_items#index'
       resources :find,         only: [:index]
-      resources :find_all,     only: [:index], to: 'find_all#index'
+      resources :find_all,     only: [:index]
     end
 
     namespace :invoices do
