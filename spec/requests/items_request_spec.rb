@@ -6,15 +6,15 @@ describe "Invoices API" do
     @merchant = create(:merchant)
     @item     = create(:item, merchant: @merchant)
     @invoice = create(:invoice_item, customer: @customer, merchant: @merchant)
-  end 
+  end
   it "sends a list of items" do
     item_2 = create(:item, merchant: @merchant)
     get '/api/v1/items'
-    
+
     items = JSON.parse(response.body)
     expect(response).to be_success
 
-    expect(items.count).to eq 2 
+    expect(items.count).to eq 2
 
   end
 
@@ -29,7 +29,7 @@ describe "Invoices API" do
     expect(customer["id"]).to eq(id)
   end
 
-  it "can return a collection of associated invoice items" do 
+  it "can return a collection of associated invoice items" do
     invoice_item_1 = create(:invoice_item, invoice: @invoice, item: @item)
     invoice_item_2 = create(:invoice_item, invoice: @invoice, item: @item)
 

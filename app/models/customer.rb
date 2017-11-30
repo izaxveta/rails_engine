@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
   has_many   :invoices
+  has_many   :transactions, through: :invoices
 
   def self.find_customer(params)
     find_by(params)
@@ -16,5 +17,5 @@ class Customer < ApplicationRecord
       .group(:merchant_id)
       .order("count DESC")
       .limit(1)
-  end 
+  end
 end
