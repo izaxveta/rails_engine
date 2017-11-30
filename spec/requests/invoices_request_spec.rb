@@ -57,6 +57,8 @@ RSpec.describe "Invoices API" do
     it "endpoint returns all items for an invoice" do
       item_1 = create(:item, merchant: @merchant)
       item_2 = create(:item, merchant: @merchant)
+      invoice_item_1 = create(:invoice_item, invoice: @invoice, item: item_1)
+      invoice_item_2 = create(:invoice_item, invoice: @invoice, item: item_1)
 
       get "/api/v1/invoices/#{@invoice.id}/items"
 
