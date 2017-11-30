@@ -1,6 +1,7 @@
 class InvoiceItem < ApplicationRecord
   belongs_to :item
   belongs_to :invoice
+  has_many   :transactions
 
   def self.find_invoice_item(params)
     find_by(params)

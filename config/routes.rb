@@ -64,12 +64,14 @@ namespace :api do
     end
 
     resources :invoice_items,   only: [:index, :show] do
-      resources :invoices,      only: [:show], to: 'invoice_items/invoices#show'
-      resources :item,          only: [:show], to: "invoice_items/items#show"
+      resources :invoice,      only: [:index], to: 'invoice_items/invoices#index'
+      resources :item,          only: [:index], to: "invoice_items/items#index"
     end
 
     resources :items,           only: [:index, :show] do
       resources :best_day,      only: [:index], to: "items/best_day#index"
+      resources :invoice_items, only: [:index], to: "items/invoice_items#index"   
+      resources :merchant,     only: [:index], to: "items/merchants#index"   
     end 
   end
 end

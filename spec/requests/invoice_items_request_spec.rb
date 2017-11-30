@@ -33,17 +33,15 @@ RSpec.describe "Invoice Items API" do
     expect(customer["id"]).to eq(id)
   end
 
-  it "can return a list of associated transactions" do
-    transaction_1 = create(:transaction, invoice: @invoice)
-    transaction_2 = create(:transaction, invoice: @invoice)
+  it "can return a list of associated invoice" do
 
-    get "/api/v1/invoice_items/#{@invoice_item.id}/transactions"
+    get "/api/v1/invoice_items/#{@invoice_item.id}/invoice"
 
-    transactions = JSON.parse(response.body)
+    invoice = JSON.parse(response.body)
 
     expect(response).to be_success
-    expect(transactions.count).to eq 2
-  end 
+    expect(invoice.count).to eq 6
+  end
 
   it "can return the associated item" do 
     get "/api/v1/invoice_items/#{@invoice_item.id}/item"
@@ -51,6 +49,6 @@ RSpec.describe "Invoice Items API" do
     item = JSON.parse(response.body)
     
     expect(response).to be_success
-    expect(item.count).to eq 1 
+    expect(item.count).to eq 7 
   end 
  end 
