@@ -58,7 +58,7 @@ RSpec.describe 'Merchants API' do
 
       merchant2 = create(:merchant)
 
-      get "/api/v1/merchants/findall?name=Walgreens"
+      get "/api/v1/merchants/find_all?name=Walgreens"
 
       merchants = JSON.parse(response.body)
 

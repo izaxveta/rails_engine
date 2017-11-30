@@ -6,8 +6,8 @@ namespace :api do
       resources :revenue,      only: [:index], to: 'revenue#index'
       resources :most_revenue, only: [:index], to: 'most_revenue#index'
       resources :most_items,   only: [:index], to: 'most_items#index'
-      resources :find,         only: [:index]
-      resources :find_all,     only: [:index]
+      resources :find,         only: [:index], to: 'find#index'
+      resources :find_all,     only: [:index], to: "find_all#index"
     end
 
     namespace :invoices do
@@ -78,5 +78,5 @@ end
 
 # get '/api/v1/merchants/:id/revenue', to: 'api/v1/merchants/revenue#show'
 # get "/api/v1/merchants/:id/customers_with_pending_invoices", to: 'api/v1/analytics#customers_with_pending_invoices'
-
+ 
 end
