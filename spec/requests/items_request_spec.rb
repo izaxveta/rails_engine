@@ -1,11 +1,11 @@
 require "rails_helper"
 
-describe "Invoices API" do
+describe "Item API" do
   before(:each) do
     @customer = create(:customer)
     @merchant = create(:merchant)
     @item     = create(:item, merchant: @merchant)
-    @invoice = create(:invoice_item, customer: @customer, merchant: @merchant)
+    @invoice = create(:invoice, customer: @customer, merchant: @merchant)
   end 
   it "sends a list of items" do
     item_2 = create(:item, merchant: @merchant)
@@ -33,5 +33,21 @@ describe "Invoices API" do
     invoice_item_1 = create(:invoice_item, invoice: @invoice, item: @item)
     invoice_item_2 = create(:invoice_item, invoice: @invoice, item: @item)
 
+    get "/api/v1/items/#{@item.id}/invoice_items"
+
+    invoice_items = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(invoice_items.count).to eq 2 
   end
+   
+  it "can return its associated merchant" do 
+    get "/api/v1/items/#{@item.id}/merchant"
+
+    merchant = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(merchant["name"]).to eq "Walgreens"
+    
+  end 
 end

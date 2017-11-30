@@ -20,10 +20,6 @@ RSpec.describe "Invoices API" do
     end
 
     it 'can obtain one merchant by the :id' do
-      # customer = create(:customer)
-      # merchant = create(:merchant)
-      # invoice = create(:invoice, customer: customer, merchant: merchant)
-      # item = create(:item, merchant: merchant)    
       id = create(:invoice, customer: @customer, merchant: @merchant).id
 
       get "/api/v1/invoices/#{id}"

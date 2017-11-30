@@ -69,7 +69,7 @@ RSpec.describe 'Merchants API' do
 
     it ":id/items returns the merchant's items" do
       #this route should exist but is erroring out. 
-      get "/api/vi/merchants/#{@merchant.id}/items"
+      get "/api/v1/merchants/#{@merchant.id}/items"
 
       items = JSON.parse(response.body)
 
