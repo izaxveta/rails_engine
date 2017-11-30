@@ -38,12 +38,11 @@ class Merchant < ApplicationRecord
       .limit(filter)
   end
 
-  def self.favorite_customer(filter)
-    Invoice
-    .select("customer.*, sum(invoice.id) as invoice_count")
-    .where(merchant_id: filter)
-    .joins(:customers, :transactions)
-    .merge(Transaction.unscoped.successful)
-    .group(:customer_id)
+  def self.favorite_customer(filter = nil)
+    results = Invoice
+    .where(filter)
+    .group('customer_id')
+    .count
+    Customer.find(results.key(results.values.max))
   end
 end
