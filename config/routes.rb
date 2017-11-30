@@ -38,10 +38,11 @@ namespace :api do
 
     end
     
-    resources :merchants,       only: [:index, :show] do
-      resources :revenue,       only: [:index], to: 'merchants/revenue#index'
-      resources :items,         only: [:index], to: 'merchants/items#index'
-      resources :invoices,      only: [:index], to: 'merchants/invoices#index'
+    resources :merchants,           only: [:index, :show] do
+      resources :revenue,           only: [:index], to: 'merchants/revenue#index'
+      resources :items,             only: [:index], to: 'merchants/items#index'
+      resources :invoices,          only: [:index], to: 'merchants/invoices#index'
+      resources :favorite_customer, only: [:index], to: 'merchants/favorite_customer#index' 
 		end
     
     resources :transactions,    only: [:index, :show] do

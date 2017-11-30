@@ -36,4 +36,14 @@ class Merchant < ApplicationRecord
       .group(:id)
       .order("item_quantity DESC")
   end
+  
+  #help
+  def self.favorite_customer(filter)
+    Invoice
+    .select("customer.*, sum(invoice.id) as invoice_count")
+    .where(merchant_id: filter)
+    .joins(:customers, :transactions) 
+    .merge(Transaction.unscoped.successful)
+    .group(:customer_id)
+  end 
 end
