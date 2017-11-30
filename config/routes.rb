@@ -7,7 +7,7 @@ namespace :api do
       resources :most_revenue, only: [:index], to: 'most_revenue#index'
       resources :most_items,   only: [:index], to: 'most_items#index'
       resources :find,         only: [:index]
-      resources :find_all,     only: [:index]
+      resources :find_all,     only: [:index], to: 'find_all#index'
     end
 
     namespace :invoices do
@@ -59,8 +59,8 @@ namespace :api do
       resources :transactions,  only: [:index], to: 'invoices/transactions#index'
       resources :invoice_items, only: [:index], to: 'invoices/invoice_items#index'
       resources :items,         only: [:index], to: 'invoices/items#index'
-      resources :customer,      only: [:show], to: 'invoices/customers#show'
-      resources :merchant,      only: [:show], to: 'invoices/merchants#show'
+      resources :customer,      only: [:index], to: 'invoices/customers#show'
+      resources :merchant,      only: [:index], to: 'invoices/merchants#show'
     end
 
     resources :invoice_items,   only: [:index, :show] do

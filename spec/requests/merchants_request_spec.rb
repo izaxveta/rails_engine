@@ -3,24 +3,22 @@ require 'rails_helper'
 RSpec.describe 'Merchants API' do
   
   before (:each) do 
-    merchant = build(:merchant)
-    customer = build(:customer)
-    item_1 = Merchant.items.create(
+    @merchant = create(:merchant)
+    @customer = create(:customer)
+    item_1 = @merchant.items.create(
       name: "Icecream Cone",
       description: "cold",
       unit_price: 1.5,
-      quantity: 4
     )
     
-    item_2 = Merchant.items.create(
+    item_2 = @merchant.items.create(
       name: "Icecream Cone",
       description: "cold",
       unit_price: 1.5,
-      quantity: 4
     )
     
-    invoice = merchant.invoices.create(
-      customer_id: customer.id,
+    invoice = @merchant.invoices.create(
+      customer_id: @customer.id,
       status: "Shipped"
     ) 
 
@@ -33,7 +31,7 @@ RSpec.describe 'Merchants API' do
 
       expect(response).to be_success
       merchants = JSON.parse(response.body)
-      expect(merchants.count).to eq(8)
+      expect(merchants.count).to eq(9) #list plus one from before(:each)
     end
 
     it 'can show one merchant by the :id' do
@@ -48,19 +46,19 @@ RSpec.describe 'Merchants API' do
     end
 
     it 'can find a single merchant by attributes' do
-      get "api/v1/merchants/find?name=Walgreens"
+      get "/api/v1/merchants/find?name=Walgreens"
 
       merchants = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(merchants.count).to eq 1
+      expect(merchants["name"]).to eq "Walgreens"
     end 
 
     it 'can find all merchants with attribute' do
 
-      merchant2 = build(:merchant)
+      merchant2 = create(:merchant)
 
-      get "api/v1/merchants/findall?name=Walgreens"
+      get "/api/v1/merchants/findall?name=Walgreens"
 
       merchants = JSON.parse(response.body)
 
