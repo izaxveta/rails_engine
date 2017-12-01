@@ -6,7 +6,7 @@ RSpec.describe "Invoices API" do
     @merchant = create(:merchant)
     @invoice = create(:invoice, customer: @customer, merchant: @merchant)
     @item = create(:item, merchant: @merchant)
-  end 
+  end
 
     it "sends a list of merchants" do
 
@@ -39,8 +39,8 @@ RSpec.describe "Invoices API" do
       transactions = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(transactions.count).to eq 2 
-    end 
+      expect(transactions.count).to eq 2
+    end
 
     it "endpoint returns all invoice_items for an invoice" do
       invoice_item_1 = create(:invoice_item, item: @item, invoice: @invoice)
@@ -51,8 +51,8 @@ RSpec.describe "Invoices API" do
       invoice_items = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(invoice_items.count).to eq 2 
-    end 
+      expect(invoice_items.count).to eq 2
+    end
 
     it "endpoint returns all items for an invoice" do
       item_1 = create(:item, merchant: @merchant)
@@ -63,24 +63,26 @@ RSpec.describe "Invoices API" do
       get "/api/v1/invoices/#{@invoice.id}/items"
 
       items = JSON.parse(response.body)
-      
+
       expect(response).to be_success
-      expect(items.count).to eq 2 
-    end 
+      expect(items.count).to eq 2
+    end
 
     it "endpoint returns the associated customer" do
       get "/api/v1/invoices/#{@invoice.id}/customer"
 
       customer = JSON.parse(response.body)
+
       expect(response).to be_success
-      expect(customer.count).to eq 5 
-    end 
+      expect(customer["id"]).to eq(@customer.id)
+    end
 
     it "endpoint returns the associated merchant" do
       get "/api/v1/invoices/#{@invoice.id}/merchant"
-      
+
       merchant = JSON.parse(response.body)
+
       expect(response).to be_success
-      expect(merchant["name"]).to eq "Walgreens" 
+      expect(merchant["name"]).to eq "Walgreens"
     end
-end 
+end

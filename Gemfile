@@ -25,6 +25,8 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 gem 'postgres-copy'
+gem "active_model_serializers", '~> 0.10.0'
+gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -32,6 +34,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'rspec-rails'
   gem 'faker'
+  gem 'rspec-pride'
 end
 
 group :development do

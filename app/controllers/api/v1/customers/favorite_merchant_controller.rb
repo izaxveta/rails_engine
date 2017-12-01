@@ -1,14 +1,12 @@
 class Api::V1::Customers::FavoriteMerchantController < ApplicationController
 
-    def index
-      merchant = Customer.favorite_merchant(customer_params).first
-      render json: Merchant.find(merchant.merchant_id)
-    end 
+  def index
+    render json: Customer.favorite_merchant(customer_params["customer_id"].to_i)
+  end
 
+  private
 
-    private 
-
-    def customer_params 
-      params.permit(:id)
-    end 
-end 
+  def customer_params
+    params.permit(:customer_id)
+  end
+end
