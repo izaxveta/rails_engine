@@ -26,7 +26,7 @@ RSpec.describe 'Merchant Business Intel API' do
     @transaction3 = create(:transaction, invoice: @invoice3)
   end
 
-  context "acrosss all merchants" do
+  context "across all merchants" do
     it 'can obtain x # of merchants ranked by most_revenue' do
       get "/api/v1/merchants/most_revenue?quantity=1"
 
