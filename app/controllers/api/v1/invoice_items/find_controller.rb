@@ -1,6 +1,5 @@
 class Api::V1::InvoiceItems::FindController < ApplicationController
   def index
-    byebug
     render json: InvoiceItem.find_invoice_item(invoice_item_params)
   end
 
