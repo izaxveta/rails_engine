@@ -88,13 +88,14 @@ RSpec.describe 'Merchant Business Intel API' do
 
       # byebug
       expect(response).to be_success
-
+      expect(content["id"]).to eq(@customer.id)
 
       get "/api/v1/merchants/#{@merchant2.id}/favorite_customer"
 
       content = JSON.parse(response.body)
 
       expect(response).to be_success
+      expect(content["id"]).to eq(@customer.id)
     end
   end
 end
