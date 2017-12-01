@@ -50,4 +50,20 @@ RSpec.describe 'Custsomers API' do
     expect(response).to be_success
     expect(content.count).to eq(3)
   end
+  it "can find a specific customer" do
+    get "/api/v1/customers/find?first_name=#{@customer.first_name}"
+    
+    customer = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(customer["first_name"]).to eq @customer.first_name 
+  end 
+
+  it "can find all customers with a name" do
+     customer_2 = create(:customer)
+    get "/api/v1/customers/find_all?first_name=#{@customer.first_name}"
+    
+    customer = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(customer.count).to eq 1
+  end  
 end
