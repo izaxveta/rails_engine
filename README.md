@@ -21,8 +21,11 @@ rspec
 ```
 
 #Launching and interacting with the server
-To run server and launch queries,
+
+To run server and launch queries:
+```
 rails s
+```
 
 ## Routes
 
