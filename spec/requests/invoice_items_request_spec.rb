@@ -48,4 +48,21 @@ RSpec.describe "Invoice Items API" do
     expect(response).to be_success
     expect(item["id"]).to eq(@item.id)
   end
+ 
+  it "can find a specific invoice_items" do
+    get "/api/v1/invoice_items/find?id=#{@invoice_item.id}"
+    
+    invoice_item = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(invoice_item["id"]).to eq @invoice_item.id 
+  end 
+
+  it "can find all invoice_items with an invoice id " do
+    invoice_item_2 = build(:invoice_item, invoice: @invoice, item: @item)
+    get "/api/v1/invoice_items/find_all?id=#{@invoice_item.id}"
+    
+    invoice_item = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(invoice_item.count).to eq 1
+  end 
  end

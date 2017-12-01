@@ -38,4 +38,22 @@ RSpec.describe 'Transaction API' do
     expect(response).to be_success
     expect(invoice["id"]).to eq(@invoice.id)
   end
+
+  it "can find a specific transaction" do
+    transaction_ = create(:transaction, invoice: @invoice)
+    get "/api/v1/transactions/find?id=#{transaction_.id}"
+    
+    transaction = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(transaction["id"]).to eq transaction_.id 
+  end 
+
+  it "can find all transactions with a name" do
+     transaction_ = create(:transaction, invoice: @invoice)
+    get "/api/v1/transactions/find_all?id=#{transaction_.id}"
+    
+    transaction = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(transaction.first["id"].to_i).to eq transaction_.id 
+  end  
 end

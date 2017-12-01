@@ -50,4 +50,24 @@ describe "Item API" do
     expect(merchant["name"]).to eq "Walgreens"
 
   end
+
+  it "can find a specific item" do
+    get "/api/v1/items/find?name=#{@item.name}"
+    
+    item = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(item["name"]).to eq @item.name 
+  end 
+
+  it "can find all items with a name" do
+    create(:item, merchant: @merchant)
+    get "/api/v1/items/find_all?name=#{@item.name}"
+    
+    item = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(item.count).to eq 2
+  end  
+
 end

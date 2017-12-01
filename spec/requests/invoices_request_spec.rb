@@ -85,4 +85,21 @@ RSpec.describe "Invoices API" do
       expect(response).to be_success
       expect(merchant["name"]).to eq "Walgreens"
     end
+
+    it "can find a specific invoice" do
+      get "/api/v1/invoices/find?name=#{@invoice.id}"
+      
+      invoice = JSON.parse(response.body)
+      expect(response).to be_success
+      expect(invoice["id"]).to eq @invoice.id 
+    end 
+
+    it "can find all invoices invoice" do
+      invoice_2 = create(:invoice, customer: @customer, merchant: @merchant)
+      get "/api/v1/invoices/find?name=#{@invoice.id}"
+      
+      invoices = JSON.parse(response.body)
+      expect(response).to be_success
+      expect(invoices.count).to eq 4
+    end 
 end
