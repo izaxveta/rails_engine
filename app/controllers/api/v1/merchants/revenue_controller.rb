@@ -1,14 +1,13 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
   def index
-    
     hash = {}
     if params[:merchant_id]
       hash["revenue"] = Merchant.revenue(merchant_params).to_i / 100.0
       hash["revenue"] = hash["revenue"].to_s
-    else 
+    else
       hash["total_revenue"] = Merchant.revenue(merchant_params).to_i / 100.0
       hash["total_revenue"] = hash["total_revenue"].to_s
-    end 
+    end
     render json: hash
 
   end

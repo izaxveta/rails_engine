@@ -1,7 +1,7 @@
 class Api::V1::Merchants::FavoriteCustomerController < ApplicationController
   def index
-    # byebug
-    render json: Merchant.favorite_customer(merchant_params["id"])
+
+    render json: Merchant.favorite_customer(merchant_params["id"].to_i)
   end
 
   private

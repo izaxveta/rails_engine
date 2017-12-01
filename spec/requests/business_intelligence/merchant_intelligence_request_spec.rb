@@ -66,17 +66,14 @@ RSpec.describe 'Merchant Business Intel API' do
     end
 
     it 'can return the total revenue across all merchants for a given date' do
+      get "/api/v1/merchants/revenue?date=2012-03-25 09:54:09 UTC"
 
-      # get "/api/v1/merchants/revenue?date=2012-03-25 09:54:09 UTC"
+      content = JSON.parse(response.body)
 
-      # content = JSON.parse(response.body)
+      expect(response).to be_success
 
-      # expect(response).to be_success
-      # byebug
-      # expect(content.first["id"]).to eq(@invoice1.id)
-      # expect(content.count).to eq(1)
-
-      # FIX PRICE FIRST
+      expect(content.first["id"]).to eq(@invoice1.id)
+      expect(content.count).to eq(2)
     end
   end
 
@@ -86,7 +83,6 @@ RSpec.describe 'Merchant Business Intel API' do
 
       content = JSON.parse(response.body)
 
-      # byebug
       expect(response).to be_success
       expect(content["id"]).to eq(@customer.id)
 
@@ -98,4 +94,5 @@ RSpec.describe 'Merchant Business Intel API' do
       expect(content["id"]).to eq(@customer.id)
     end
   end
+
 end

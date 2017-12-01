@@ -1,8 +1,6 @@
 class Api::V1::InvoiceItems::FindAllController < ApplicationController
   def index
-    # byebug
     render json: InvoiceItem.find_all_invoice_items(invoice_item_params)
-    # render json: InvoiceItem.where(unit_price: invoice_item_params[:unit_price])
   end
 
   private

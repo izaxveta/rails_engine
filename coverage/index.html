@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-30T17:50:23-07:00">2017-11-30T17:50:23-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-12-01T10:25:03-07:00">2017-12-01T10:25:03-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.98%</span></span>
+    (<span class="covered_percent"><span class="green">96.52%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.47
+         1.45
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>63</b> files in total.
-    <b>530</b> relevant lines. 
-    <span class="green"><b>514</b> lines covered</span> and
-    <span class="red"><b>16</b> lines missed </span>
+    <b>64</b> files in total.
+    <b>546</b> relevant lines. 
+    <span class="green"><b>527</b> lines covered</span> and
+    <span class="red"><b>19</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -203,7 +203,7 @@
       <tr>
         <td class="strong"><a href="#6f940dbdecf6305bc9c7006cf2f4625aba7a6724" class="src_link" title="app/controllers/api/v1/merchants/favorite_customer_controller.rb">app/controllers/api/v1/merchants/favorite_customer_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>11</td>
+        <td>12</td>
         <td>6</td>
         <td>6</td>
         <td>0</td>
@@ -261,6 +261,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#2791af91838fd13443af79b4d7a43ae6f5eed6e1" class="src_link" title="app/controllers/api/v1/merchants/revenue_controller.rb">app/controllers/api/v1/merchants/revenue_controller.rb</a></td>
+        <td class="red strong">80.0 %</td>
+        <td>30</td>
+        <td>15</td>
+        <td>12</td>
+        <td>3</td>
+        <td>0.8</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#6c907c2c7cf6323f72c7ed67ff5bd971ecc31f06" class="src_link" title="app/controllers/api/v1/merchants_controller.rb">app/controllers/api/v1/merchants_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>9</td>
@@ -312,12 +322,12 @@
       
       <tr>
         <td class="strong"><a href="#866c9510fb55cfbab1ab83597c9373e5f282ee1b" class="src_link" title="app/models/customer.rb">app/models/customer.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>21</td>
-        <td>9</td>
+        <td class="red strong">60.0 %</td>
+        <td>20</td>
+        <td>10</td>
         <td>6</td>
-        <td>3</td>
-        <td>0.7</td>
+        <td>4</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -352,11 +362,11 @@
       
       <tr>
         <td class="strong"><a href="#b502849de689798752063481ddd81d659547fdad" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
-        <td class="green strong">94.12 %</td>
+        <td class="green strong">100.0 %</td>
         <td>48</td>
         <td>17</td>
-        <td>16</td>
-        <td>1</td>
+        <td>17</td>
+        <td>0</td>
         <td>1.2</td>
       </tr>
       
@@ -367,7 +377,7 @@
         <td>9</td>
         <td>7</td>
         <td>2</td>
-        <td>5.3</td>
+        <td>5.7</td>
       </tr>
       
       <tr>
@@ -1733,55 +1743,61 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="3">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">    render json: Merchant.favorite_customer(merchant_params)</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="2" data-linenumber="4">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    render json: Merchant.favorite_customer(merchant_params[&quot;id&quot;].to_i)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def merchant_params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
+        <li class="covered" data-hits="2" data-linenumber="10">
           <span class="hits">2</span>
           
-          <code class="ruby">    params.permit(:merchant_id)</code>
+          <code class="ruby">    params.permit(:id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby">end</code>
@@ -2187,6 +2203,205 @@
 </div>
 
       
+        <div class="source_table" id="2791af91838fd13443af79b4d7a43ae6f5eed6e1">
+  <div class="header">
+    <h3>app/controllers/api/v1/merchants/revenue_controller.rb</h3>
+    <h4><span class="red">80.0 %</span> covered</h4>
+    <div>
+      <b>15</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Api::V1::Merchants::RevenueController &lt; ApplicationController</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def index</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    hash = {}</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    if params[:merchant_id]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="5">
+          
+          
+          <code class="ruby">      hash[&quot;revenue&quot;] = Merchant.revenue(merchant_params).to_i / 100.0</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">      hash[&quot;revenue&quot;] = hash[&quot;revenue&quot;].to_s</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      hash[&quot;total_revenue&quot;] = Merchant.revenue(merchant_params).to_i / 100.0</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      hash[&quot;total_revenue&quot;] = hash[&quot;total_revenue&quot;].to_s</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    render json: hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def merchant_params</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    if params[:date]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      params[:created_at] = params[:date]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      params.permit(:merchant_id ,:created_at)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">      params.permit(:merchant_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
         <div class="source_table" id="6c907c2c7cf6323f72c7ed67ff5bd971ecc31f06">
   <div class="header">
     <h3>app/controllers/api/v1/merchants_controller.rb</h3>
@@ -2501,11 +2716,11 @@
         <div class="source_table" id="866c9510fb55cfbab1ab83597c9373e5f282ee1b">
   <div class="header">
     <h3>app/models/customer.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">60.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
+      <b>10</b> relevant lines. 
       <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -2587,52 +2802,46 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.favorite_merchant(filter)</code>
+          <code class="ruby">  def self.favorite_merchant(filter = nil)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">    Invoice</code>
+          <code class="ruby">    results = Invoice</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">      .select(&quot;invoices.merchant_id, sum(merchant_id) AS count&quot;)</code>
+          <code class="ruby">      .where(&quot;invoices.customer_id = #{filter}&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">      .where(filter)</code>
+          <code class="ruby">      .group(&quot;merchant_id&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">      .group(:merchant_id)</code>
+          <code class="ruby">      .count</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
-          <code class="ruby">      .order(&quot;count DESC&quot;)</code>
+          <code class="ruby">    Merchant.find(results.key(results.values.max))</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
-          
-          
-          <code class="ruby">      .limit(1)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
@@ -3171,11 +3380,11 @@
         <div class="source_table" id="b502849de689798752063481ddd81d659547fdad">
   <div class="header">
     <h3>app/models/merchant.rb</h3>
-    <h4><span class="green">94.12 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>17</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -3296,8 +3505,8 @@
           <code class="ruby">      .limit(limit)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
           <code class="ruby">      .sum(&quot;invoice_items.quantity * invoice_items.unit_price&quot;)</code>
         </li>
@@ -3437,19 +3646,19 @@
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">    .where(filter)</code>
+          <code class="ruby">      .where(&quot;invoices.merchant_id = #{filter}&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">    .group(&#39;customer_id&#39;)</code>
+          <code class="ruby">      .group(&#39;customer_id&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">    .count</code>
+          <code class="ruby">      .count</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="46">
@@ -3507,8 +3716,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="4">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="4">
+          <span class="hits">6</span>
           
           <code class="ruby">  scope :successful, -&gt; { where(result: &quot;success&quot;) }</code>
         </li>
@@ -3525,8 +3734,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="38" data-linenumber="7">
-          <span class="hits">38</span>
+        <li class="covered" data-hits="40" data-linenumber="7">
+          <span class="hits">40</span>
           
           <code class="ruby">  default_scope { order(:id) }</code>
         </li>
