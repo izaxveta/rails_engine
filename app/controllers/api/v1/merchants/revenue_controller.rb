@@ -16,12 +16,12 @@ class Api::V1::Merchants::RevenueController < ApplicationController
   private
 
   def merchant_params
-    if params[:date] 
+    if params[:date]
       params[:created_at] = params[:date]
       params.permit(:merchant_id ,:created_at)
-    else 
+    else
       params.permit(:merchant_id)
-    end 
+    end
   end
 end
 

@@ -29,21 +29,20 @@ class Merchant < ApplicationRecord
       .limit(limit)
   end
 
-  def self.most_items(quantity)
+  def self.most_items(filter)
     select("merchants.*, sum(invoice_items.quantity) as item_quantity")
       .joins(invoices: [:transactions, :invoice_items])
       .merge(Transaction.unscoped.successful)
       .group(:id)
       .order("item_quantity DESC")
-      .limit(limit)
+      .limit(filter)
   end
-  
-  def self.favorite_customer(filter)
-    Invoice
-    .select("customer.*, sum(invoice.id) as invoice_count")
-    .where(merchant_id: filter)
-    .joins(:customers, :transactions) 
-    .merge(Transaction.unscoped.successful)
-    .group(:customer_id)
-  end 
+
+  def self.favorite_customer(filter = nil)
+    results = Invoice
+    .where(filter)
+    .group('customer_id')
+    .count
+    Customer.find(results.key(results.values.max))
+  end
 end
