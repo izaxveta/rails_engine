@@ -77,4 +77,22 @@ RSpec.describe 'Merchants API' do
       expect(items.count).to eq 2
 
     end
+  it "can find a specific merchant" do
+    get "/api/v1/merchants/find?name=#{@merchant.name}"
+    
+    merchant = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(merchant["name"]).to eq @merchant.name 
+  end 
+
+  it "can find all items with a name" do
+    create(:merchant)
+    get "/api/v1/merchants/find_all?name=#{@merchant.name}"
+    
+    item = JSON.parse(response.body)
+
+    expect(response).to be_success
+    expect(item.count).to eq 2
+  end  
 end
