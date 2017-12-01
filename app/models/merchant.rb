@@ -40,9 +40,9 @@ class Merchant < ApplicationRecord
 
   def self.favorite_customer(filter = nil)
     results = Invoice
-    .where(filter)
-    .group('customer_id')
-    .count
+      .where("invoices.merchant_id = #{filter}")
+      .group('customer_id')
+      .count
     Customer.find(results.key(results.values.max))
   end
 end

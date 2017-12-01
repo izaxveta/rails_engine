@@ -10,12 +10,11 @@ class Customer < ApplicationRecord
     where(params)
   end
 
-  def self.favorite_merchant(filter)
-    Invoice
-      .select("invoices.merchant_id, sum(merchant_id) AS count")
-      .where(filter)
-      .group(:merchant_id)
-      .order("count DESC")
-      .limit(1)
+  def self.favorite_merchant(filter = nil)
+    results = Invoice
+      .where("invoices.customer_id = #{filter}")
+      .group("merchant_id")
+      .count
+    Merchant.find(results.key(results.values.max))
   end
 end
