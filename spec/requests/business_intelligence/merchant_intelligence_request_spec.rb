@@ -86,7 +86,7 @@ RSpec.describe 'Merchant Business Intel API' do
 
       content = JSON.parse(response.body)
 
-      byebug
+      # byebug
       expect(response).to be_success
 
 

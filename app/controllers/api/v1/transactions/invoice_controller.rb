@@ -1,7 +1,7 @@
 class Api::V1::Transactions::InvoiceController < ApplicationController
   def index
     transaction = Transaction.find(transaction_params[:transaction_id].to_i)
-    render json: transaction.invoice
+    render json: transaction.invoice, serializer: InvoiceSerializer
   end
 
   private
