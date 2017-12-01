@@ -20,7 +20,7 @@ rake csv_import:all
 rspec
 ```
 
-#Launching and interacting with the server
+# Launching and interacting with the server
 
 To run server and launch queries:
 ```
